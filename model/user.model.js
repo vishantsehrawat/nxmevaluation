@@ -6,7 +6,7 @@ const connection = mongoose.connect(process.env.mongoUrl);
 
 const userSchema = mongoose.Schema({
     name: {type : String},
-    email: {type : String,unique:true},
+    email: {type : String},
     gender: {type : String},
     password: {type : String},
     age: {type : Number},
