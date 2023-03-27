@@ -2,12 +2,14 @@ const express = require("express");
 const {connection} = require("./model/user.model");
 const userRouter = require("./routes/user.route")
 const postRouter = require("./routes/post.route")
+const authMiddleware =require("./middlewares/authMiddleware")
 require("dotenv").config();
 const port = process.env.port ||3000;
 const app = express();
 
 app.use(express.json());
 app.use("/users",userRouter);
+app.use(authMiddleware);
 app.use("/posts",postRouter);
 
 
